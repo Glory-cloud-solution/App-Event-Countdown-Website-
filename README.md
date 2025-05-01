@@ -1,8 +1,9 @@
 # App-Event-Countdown-Website-
 This project is an Event Countdown Website with a Custom Subdomain built for NeoCloud Technologies to promote the official launch of NeoApp.
+
 # 🚀 NeoApp Event Countdown Website
 
-This is a **serverless web application** designed for NeoCloud Technologies to promote the official launch of **NeoApp**, a revolutionary educational platform. The site features a live countdown timer, a registration form for early access, and an informational section about the institution. 
+This is a serverless web application designed for NeoCloud Technologies to promote the official launch of NeoApp, a revolutionary educational platform. The site features a live countdown timer, an early access registration form, and an informational section about the institution. 
 
 All AWS resources (S3 bucket, CloudFront distribution, Route 53 records, Lambda, API Gateway, DynamoDB, SNS topic, and IAM roles) are defined and managed in Terraform, ensuring consistent, repeatable infrastructure deployments.
 
@@ -13,9 +14,9 @@ Visit the live project here: [https://neocloudapp.site](https://neocloudapp.site
 
 ---
 
-## ✨ Features
+## Features
 
- **Live Countdown Timer** to the official NeoApp launch date (July 17, 2025)
+ **Live Countdown Timer** to the official NeoApp launch date (June 1, 2025)
  **Registration Form** with serverless backend for storing user data
  **Success Pop-up with Confetti Animation**
  **Data stored in DynamoDB**
@@ -46,31 +47,32 @@ This project follows a **3-tier serverless architecture**:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 NeoApp-Event-Countdown/
-├── frontend/
-│   ├── index.html
-│   ├── style.css
+NeoApp-Event-Countdown/
+├── frontend/                        # Frontend files for the event landing page
+│   ├── index.html                   # Main HTML file with countdown and form
+│   ├── style.css                   # CSS styling
 │   └── images/
-│       ├── background-image.png
-│       └── neocloud-logo.png
-│
-├── lambda_function/
-│   ├── lambda_function.py            # Python script for handling form submissions
-│   └── lambda_function_payload.zip   # Zipped deployment package
-│
-├── infrastructure/                   # Terraform Infrastructure-as-Code
-│   ├── main.tf
-│   ├── lambda.tf
-│   ├── apigateway.tf
-│   ├── dynamodb.tf
-│   ├── iam.tf
-│   ├── outputs.tf
-│   └── variables.tf
-│
-├── architecture.png                  # Architecture diagram.
-└── README.md                         # Project documentation
+│       ├── background-image.png    # Background used in the countdown section
+│       └── neocloud-logo.png       # Logo of NeoCloud Technologies
+
+├── backend/                         # Backend and serverless functions
+│   ├── lambda_function/
+│   │   ├── lambda_function.py       # Python handler for form submission
+│   │   └── lambda_function_payload.zip  # Zipped package for deployment
+│   └── infrastructure/             # Terraform IaC (Infrastructure as Code)
+│       ├── main.tf
+│       ├── lambda.tf
+│       ├── apigateway.tf
+│       ├── dynamodb.tf
+│       ├── iam.tf
+│       ├── outputs.tf
+│       └── variables.tf
+
+├── architecture.png                # Visual diagram of the full architecture
+└── README.md                       # Project documentation
 
 
 
@@ -79,7 +81,6 @@ NeoApp-Event-Countdown/
 ## 📷 Architecture Diagram
 
 ![Serverless Architecture](architecture.png)
-![image](https://github.com/user-attachments/assets/27feadd2-f6ef-48c6-b416-3a696421e54e)
 
 ---
 
@@ -117,9 +118,17 @@ This project is for educational and demonstration purposes under NeoCloud Techno
 
 ---
 
-## 🙌 Created By
+## Created By
 
 **Glory Ugochukwu**  
 Cloud Solutions Architect  
 © NeoCloud Technologies, 2025
+
+
+
+
+
+
+
+
 
