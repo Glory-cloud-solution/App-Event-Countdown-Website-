@@ -29,7 +29,7 @@ Visit the live project here: [https://neocloudapp.site](https://neocloudapp.site
 
 ---
 
-## 🏗 Architecture Overview
+## Architecture Overview
 
 This project follows a **3-tier serverless architecture**:
 
