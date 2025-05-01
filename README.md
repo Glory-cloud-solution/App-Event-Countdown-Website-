@@ -49,31 +49,7 @@ This project follows a **3-tier serverless architecture**:
 
 ## Project Structure
 
-NeoApp-Event-Countdown/
-NeoApp-Event-Countdown/
-├── frontend/                        # Frontend files for the event landing page
-│   ├── index.html                   # Main HTML file with countdown and form
-│   ├── style.css                   # CSS styling
-│   └── images/
-│       ├── background-image.png    # Background used in the countdown section
-│       └── neocloud-logo.png       # Logo of NeoCloud Technologies
-
-├── backend/                         # Backend and serverless functions
-│   ├── lambda_function/
-│   │   ├── lambda_function.py       # Python handler for form submission
-│   │   └── lambda_function_payload.zip  # Zipped package for deployment
-│   └── infrastructure/             # Terraform IaC (Infrastructure as Code)
-│       ├── main.tf
-│       ├── lambda.tf
-│       ├── apigateway.tf
-│       ├── dynamodb.tf
-│       ├── iam.tf
-│       ├── outputs.tf
-│       └── variables.tf
-
-├── architecture.png                # Visual diagram of the full architecture
-└── README.md                       # Project documentation
-
+<pre> ``` NeoApp-Event-Countdown/ ├── frontend/ # Frontend files for the event landing page │ ├── index.html # Main HTML file with countdown and form │ ├── style.css # CSS styling │ └── images/ │ ├── background-image.png # Background used in countdown section │ └── neocloud-logo.png # Logo of NeoCloud Technologies ├── backend/ # Backend and serverless functions │ ├── lambda_function/ │ │ ├── lambda_function.py # Python handler for form submission │ │ └── lambda_function_payload.zip # Zipped package for deployment │ └── infrastructure/ # Terraform IaC (Infrastructure as Code) │ ├── main.tf │ ├── lambda.tf │ ├── apigateway.tf │ ├── dynamodb.tf │ ├── iam.tf │ ├── outputs.tf │ └── variables.tf ├── architecture.png # Visual diagram of the full architecture └── README.md # Project documentation ``` </pre>
 
 
 ---
