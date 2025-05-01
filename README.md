@@ -1,7 +1,7 @@
 # App-Event-Countdown-Website-
 This project is an Event Countdown Website with a Custom Subdomain built for NeoCloud Technologies to promote the official launch of NeoApp.
 
-# 🚀 NeoApp Event Countdown Website
+# NeoApp Event Countdown Website
 
 This is a serverless web application designed for NeoCloud Technologies to promote the official launch of NeoApp, a revolutionary educational platform. The site features a live countdown timer, an early access registration form, and an informational section about the institution. 
 
@@ -14,16 +14,18 @@ Visit the live project here: [https://neocloudapp.site](https://neocloudapp.site
 
 ---
 
-## Features
 
- **Live Countdown Timer** to the official NeoApp launch date (June 1, 2025)
- **Registration Form** with serverless backend for storing user data
- **Success Pop-up with Confetti Animation**
- **Data stored in DynamoDB**
- **Deployed securely with HTTPS via Route 53 and CloudFront**
- **About Section** for first-time visitors and students
- **Mobile-Responsive Layout**
- **Custom Subdomain:** `neocloudapp.site`
+### Features
+
+- **Live Countdown Timer** to the official NeoApp launch date (July 17, 2025)
+- **Responsive Registration Form** with serverless backend for data capture
+- **Success Pop-up with Confetti Animation** after successful form submission
+- **Data Storage** in DynamoDB using AWS Lambda + API Gateway
+- **Secure Deployment** via Route 53 (Custom Subdomain) and CloudFront (HTTPS)
+- **About Section** for first-time visitors with course info and an external link
+- **Mobile-Responsive Design** optimized for all screen sizes
+- **Custom Subdomain**: `neocloudapp.site`
+
 
 ---
 
@@ -47,7 +49,7 @@ This project follows a **3-tier serverless architecture**:
 
 ---
 
-## Project Structure## 📁 Project Structure
+## Project Structure
 
 ```plaintext
 NeoApp-Event-Countdown/
@@ -80,13 +82,13 @@ NeoApp-Event-Countdown/
 
 ---
 
-## 📷 Architecture Diagram
+##  Architecture Diagram
 
 ![Serverless Architecture](architecture.png)
 
 ---
 
-## 📜 Tech Stack
+##  Tech Stack
 
 - **Frontend:** HTML5, CSS3, JavaScript 
 - **Hosting:** Amazon S3
@@ -98,7 +100,7 @@ NeoApp-Event-Countdown/
 
 ---
 
-## 🧪 How It Works
+##  How It Works
 
 1. User visits the landing page and sees a live countdown.
 2. The user fills out the registration form.
@@ -108,7 +110,7 @@ NeoApp-Event-Countdown/
 
 ---
 
-## 🗓 Save the Date
+## Save the Date
 
 **NeoApp Launches:** `July 17, 2025`
 
