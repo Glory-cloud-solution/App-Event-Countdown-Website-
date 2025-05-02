@@ -1,0 +1,199 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeoApp Study portal Countdown</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-page {
+      display: none;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://neocloud-event-page.s3.us-east-1.amazonaws.com/about+Neo-background+image.png') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 60px 20px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .about-page h2 {
+      font-size: 2rem;
+      color: #6CA8FF;
+    }
+
+    .about-page p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+
+    .about-page a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00AEEF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .about-page a#backLink {
+      background-color: transparent;
+      color: #6CA8FF;
+      font-size: 0.95rem;
+    }
+
+    form {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      max-width: 320px;
+      width: 100%;
+    }
+
+    button {
+      max-width: 300px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="overlay"></div>
+
+  <div class="content" id="mainContent">
+    <img src="images/neocloud-logo.png" alt="NeoCloud Logo" class="logo" />
+
+    <h1 class="main-title">NeoApp is Launching Soon!</h1>
+
+    <p class="slogan">
+      Tech is evolving — and NeoCloud is preparing you to lead the future.<br>
+      Become part of the first wave of innovators with NeoApp.
+    </p>
+
+    <p class="countdown" id="countdown"></p>
+
+    <h2 class="slogan">Join Our Waitlist</h2>
+
+    <form id="registrationForm" method="POST" action="https://xas19nlnlk.execute-api.us-east-1.amazonaws.com/prod/register">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <button type="submit">Register Now</button>
+    </form>
+
+    <div id="popup" class="popup hidden">
+      ✅ Thank you! You’re now on the waitlist.
+    </div>
+
+    <p class="save-the-date">📅 Save the date: July 17, 2025</p>
+
+    <footer>
+      &copy; 2025 NeoCloud. All rights reserved.<br />
+      Glory Ugochukwu, Cloud Solutions Architect<br />
+      <a href="#" id="aboutLink">About NeoCloud Technologies</a>
+    </footer>
+  </div>
+
+  <div class="about-page" id="aboutPage">
+    <h2>About NeoCloud Technologies</h2>
+    <p>Neo Cloud Technologies is one of the Leading Computer Training institutes in Abuja. Committed to Offering Top-Notch Training in Software, Hardware, and Networking. We offer high-quality training opportunities to individuals and organizations. Choose from flexible learning options: physical, online, evening, and weekend classes.</p>
+    <p>Our certified trainers ensure you gain the skills you need to succeed.<br>NEO CLOUD LEARNING INSTITUTE OFFERS COURSES SUCH AS CERTIFICATE COURSES (3 MONTHS/4 MONTHS), DIPLOMA COURSES (6 MONTHS), SHORT-TERM COURSES (1 MONTH/2 MONTHS), AND CAPACITY DEVELOPMENT COURSES (1 WEEK).</p>
+    <a href="https://techneo.ng/computer-training-center-abuja-nigeria/" target="_blank">View Our Courses</a>
+    <br><br>
+    <a href="#" id="backLink">&larr; Go Back</a>
+  </div>
+
+  <script>
+    const launchDate = new Date("2025-06-01T12:00:00").getTime();
+    const countdownEl = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      if (distance < 0) {
+        countdownEl.innerHTML = "NeoApp has launched!";
+      } else {
+        countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
+  <script>
+    const form = document.getElementById('registrationForm');
+    const popup = document.getElementById('popup');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, email }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          popup.classList.remove('hidden');
+          popup.classList.add('show');
+          form.reset();
+
+          confetti({
+            particleCount: 100,
+            spread: 60,
+            origin: { y: 0.6 }
+          });
+
+          setTimeout(() => {
+            popup.classList.remove('show');
+            popup.classList.add('hidden');
+          }, 4000);
+        } else {
+          alert('❌ ' + (result.message || 'Something went wrong.'));
+        }
+      } catch (err) {
+        alert('❌ Network error. Please try again.');
+      }
+    });
+
+    document.getElementById("aboutLink").addEventListener("click", function(e) {
+      e.preventDefault();
+      document.getElementById("mainContent").style.display = "none";
+      document.getElementById("aboutPage").style.display = "block";
+      document.querySelector(".background").style.display = "none";
+      document.querySelector(".overlay").style.display = "none";
+    });
+
+    document.getElementById("backLink").addEventListener("click", function(e) {
+      e.preventDefault();
+      document.getElementById("aboutPage").style.display = "none";
+      document.getElementById("mainContent").style.display = "flex";
+      document.querySelector(".background").style.display = "block";
+      document.querySelector(".overlay").style.display = "block";
+    });
+  </script>
+</body>
+</html>
+
+
